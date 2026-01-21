@@ -1,17 +1,12 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Note: In a real deployment, these would be injected via environment variables.
-// We use the mock values defined in vite.config.ts for completeness here.
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://mockurl.supabase.co';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'MOCK_ANON_KEY';
+// IMPORTANT: In a real application, these would be injected via Vercel environment variables.
+// We use placeholders here as per instructions, assuming VITE_ prefix works during dev build.
 
-// Initialize Supabase Client
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "https://your-project-id.supabase.co";
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || "YOUR_ANON_KEY";
+
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-// --- Mock User/Session Management ---
-// Since we cannot implement full Auth here, we provide a mock user ID for multiplayer tracking
-export const MOCK_USER_ID = 'user-12345';
-export const MOCK_USERNAME = 'PlayerOne';
-
-// Define the table structure we expect for multiplayer rooms (if needed)
-// For this implementation, we assume a 'games' table exists for presence/state tracking.
+// For multiplayer functionality, we would typically use supabase.from('games').on('...') for real-time updates.
+// Since this is a complex engine implementation, the real-time listening setup is omitted but the client is initialized.
